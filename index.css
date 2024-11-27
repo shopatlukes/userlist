@@ -21,7 +21,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Rubik', sans-serif;
-    background-color: white;
+    background-color: white; 
     color: #50C878;
     user-select: none;
 }
@@ -38,7 +38,7 @@ html, body {
     font-size: 400%;
     font-weight: 400;
     font-style: normal;
-    background-color: black;
+    background-color: white;
     color: #50C878;
     position: fixed;
     width: 100%;

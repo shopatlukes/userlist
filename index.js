@@ -9,9 +9,9 @@ const app = initializeApp(appSettings)
 const database  = getDatabase(app)
 const shoppingListInDB = ref(database, "shoppingList")
 
-const inputFieldEl = document.getElementById("input-field")
-const addButtonEl = document.getElementById("add-button")
-const shoppingListEl = document.getElementById("shopping-list")
+const inputFieldEl = document.getElementById("username")
+const addButtonEl = document.getElementById("listbutton")
+const shoppingListEl = document.getElementById("userList")
 
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value

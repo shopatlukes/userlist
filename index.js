@@ -7,7 +7,7 @@ const appSettings = {
 
 const app = initializeApp(appSettings)
 const database  = getDatabase(app)
-const shoppingListInDB = ref(database, "shoppingList")
+const shoppingListInDB = ref(database, "userList")
 
 const inputFieldEl = document.getElementById("username")
 const addButtonEl = document.getElementById("listbutton")
@@ -16,12 +16,12 @@ const shoppingListEl = document.getElementById("userList")
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value
   
-    push(shoppingListInDB, inputValue)
+    push(userListInDB, inputValue)
   
     clearInputFieldEl()
   })
 
-onValue(shoppingListInDB, function(snapshot) {
+onValue(userListInDB, function(snapshot) {
     
      if (snapshot.exists()) {
         let itemsArray = Object.entries(snapshot.val())
@@ -36,13 +36,13 @@ onValue(shoppingListInDB, function(snapshot) {
             appendItemToShoppingListEl(currentItem)
         }
     } else {
-        shoppingListEl.innerHTML = "No items here...yet"
+        userListEl.innerHTML = "No items here...yet"
     }
     
     
 })
 
-function clearShoppingListEl() {
+function clearuserListEl() {
     shoppingListEl.innerHTML = ""
 }
 
@@ -50,7 +50,7 @@ function clearInputFieldEl() {
     inputFieldEl.value = ""
 }
 
-function appendItemToShoppingListEl(item) {
+function appendItemTouserListEl(item) {
     let itemID = item[0]
     let itemValue = item[1]
     
@@ -58,7 +58,7 @@ function appendItemToShoppingListEl(item) {
     
     newEl.addEventListener("click", function() {
        
-        let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`)
+        let exactLocationOfItemInDB = ref(database, `userList/${itemID}`)
        
         remove(exactLocationOfItemInDB)
     })
@@ -67,10 +67,10 @@ function appendItemToShoppingListEl(item) {
     
     newEl.addEventListener("click", function() {
         
-        let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`)
+        let exactLocationOfItemInDB = ref(database, `userList/${itemID}`)
         
         remove(exactLocationOfItemInDB)
     })   
     
-    shoppingListEl.append(newEl)
+    userListEl.append(newEl)
 }
